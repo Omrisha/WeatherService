@@ -10,12 +10,13 @@ namespace WeatherService.Logic
 {
     public class WeatherServiceImpl : IWeatherService
     {
-        private readonly static string API_KEY = "e65ef8948538477fabe19b9ac4e7d029";
+        private string _apiKey;
         private readonly HttpClient _client;
 
         public WeatherServiceImpl(HttpClient client)
         {
             _client = client;
+            _apiKey = Environment.GetEnvironmentVariable("API_KEY");
         }
 
         public async Task<WeatherBoundary> GetWeather(string cityName)
@@ -26,7 +27,7 @@ namespace WeatherService.Logic
             }
             try
             {
-                var response = await _client.GetAsync($"current?key={API_KEY}&city={cityName}");
+                var response = await _client.GetAsync($"current?key={_apiKey}&city={cityName}");
 
                 if (response.StatusCode == System.Net.HttpStatusCode.NoContent)
                 {
