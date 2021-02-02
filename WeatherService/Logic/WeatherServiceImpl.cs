@@ -26,7 +26,7 @@ namespace WeatherService.Logic
             }
             try
             {
-                var response = await _client.GetAsync($"current?key={API_KEY}& city={cityName}");
+                var response = await _client.GetAsync($"current?key={API_KEY}&city={cityName}");
 
                 if (response.StatusCode == System.Net.HttpStatusCode.NoContent)
                 {

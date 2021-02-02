@@ -5,3 +5,4 @@
 /.vs/WeatherService
 /WeatherService/bin/Debug/net5.0
 /WeatherService/obj
+/WeatherService/bin/Debug/netcoreapp3.1
